@@ -53,13 +53,13 @@ const HeroSection = () => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-          <a href="tel:+18888710037">
+          <a href="tel:+18888221011">
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base gap-2 px-8"
             >
               <Phone className="w-4 h-4" />
-              +1 (888) 871 0037
+              +1 (888) 822 1011
             </Button>
           </a>
         </motion.div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Calculator } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -11,6 +12,8 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -20,10 +23,12 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const solidNav = scrolled || !isHomePage;
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        solidNav
           ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
       }`}
@@ -32,28 +37,36 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto flex items-center justify-between h-16 sm:h-20 px-4">
-        <a href="#home" className="flex items-center gap-2">
+        <Link to="/#home" className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
             <Calculator className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-xl sm:text-2xl font-bold text-foreground">
-            ProBookeeper
+          <span
+            className={`font-display text-xl sm:text-2xl font-bold transition-colors duration-300 ${
+              solidNav ? "text-foreground" : "text-background"
+            }`}
+          >
+              ProBookeepers
           </span>
-        </a>
+        </Link>
 
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
-              className="text-sm font-body font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
+              to={`/${item.href}`}
+              className={`text-sm font-body font-medium transition-colors duration-300 ${
+                solidNav
+                  ? "text-muted-foreground hover:text-primary"
+                  : "text-background/80 hover:text-background"
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a href="tel:+18888710037">
+          <a href="tel:+18888221011">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
-              +1 (888) 871 0037
+              +1 (888) 822 1011
             </Button>
           </a>
         </div>
@@ -77,18 +90,18 @@ const Navbar = () => {
           >
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={`/${item.href}`}
                   className="text-sm font-body font-medium text-muted-foreground hover:text-primary py-2"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a href="tel:+18888710037" onClick={() => setMobileOpen(false)}>
+              <a href="tel:+18888221011" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-                  +1 (888) 871 0037
+                  +1 (888) 822 1011
                 </Button>
               </a>
             </div>

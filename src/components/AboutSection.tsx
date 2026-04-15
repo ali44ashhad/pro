@@ -42,7 +42,7 @@ const AboutSection = () => {
               Smarter Bookkeeping for Better Business Control
             </h2>
             <p className="text-muted-foreground text-body-lg mb-8">
-              ProBookeeper provides reliable bookkeeping setup, data
+              ProBookeepers provides reliable bookkeeping setup, data
               organization, and system support tailored for growing businesses.
               We streamline your financial processes, reduce errors, and ensure
               smooth operations.
