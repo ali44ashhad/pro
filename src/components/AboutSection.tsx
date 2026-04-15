@@ -1,42 +1,93 @@
-import AnimatedSection from "./AnimatedSection";
-import { CheckCircle } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Eye, Rocket, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const points = [
-  "Decades of legal and advisory experience across arbitration, contract management, employment law, and litigation.",
-  "Strategies tailored to your specific facts, contractual framework, and commercial objectives.",
-  "Robust contract advisory, risk assessment, and compliance guidance to prevent disputes.",
-  "Extensive experience guiding clients through private dispute resolution mechanisms.",
-  "Structured, detail-driven approach to claims management and documentation.",
-  "Focused and disciplined representation before courts and tribunals.",
-  "Clear communication, realistic assessments, and transparency at every stage.",
-];
+const AboutSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
-const AboutSection = () => (
-  <section id="about" className="section-padding relative overflow-hidden">
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--gold)/0.03),transparent_60%)]" />
-    <div className="container mx-auto relative z-10">
-      <AnimatedSection className="max-w-3xl mx-auto text-center mb-16">
-        <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-4">About Us</p>
-        <h2 className="heading-section mb-4">
-          Why Choose <span className="text-gradient-gold">Case Matters?</span>
-        </h2>
-        <p className="text-body-lg text-muted-foreground">
-          At Case Matters, transparency and consistency are at the core of everything we do — backed by results that truly make a difference.
-        </p>
-      </AnimatedSection>
-
-      <div className="max-w-4xl mx-auto space-y-5">
-        {points.map((point, i) => (
-          <AnimatedSection key={i} delay={i * 0.08}>
-            <div className="flex gap-4 items-start bg-card border border-border rounded-lg p-5 hover:border-primary/30 transition-colors duration-300">
-              <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{point}</p>
+  return (
+    <section id="about" className="section-padding bg-background" ref={ref}>
+      <div className="container mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
+                alt="Financial management"
+                className="w-full h-[400px] object-cover"
+              />
             </div>
-          </AnimatedSection>
-        ))}
+            <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground rounded-2xl p-6 shadow-lg hidden sm:block">
+              <p className="text-3xl font-display font-bold">10+</p>
+              <p className="text-sm opacity-90">Years Experience</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
+              About Company
+            </p>
+            <h2 className="heading-section text-foreground mb-6">
+              Smarter Bookkeeping for Better Business Control
+            </h2>
+            <p className="text-muted-foreground text-body-lg mb-8">
+              ProBookeeper provides reliable bookkeeping setup, data
+              organization, and system support tailored for growing businesses.
+              We streamline your financial processes, reduce errors, and ensure
+              smooth operations.
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
+                  <Eye className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground mb-1">Our Vision</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>Making financial management effortless</li>
+                    <li>Ensuring precision in every number</li>
+                    <li>Creating lasting partnerships</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
+                  <Rocket className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground mb-1">Our Mission</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>Smooth and secure data transition</li>
+                    <li>Streamlined bookkeeping workflows</li>
+                    <li>Increased efficiency</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a href="#services">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full gap-2">
+                Know More
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </a>
+          </motion.div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default AboutSection;

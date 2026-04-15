@@ -1,74 +1,45 @@
-import { Scale } from "lucide-react";
-
-const practiceAreas = [
-  "Arbitration", "Contract and Claim Management", "Employment, Labour and Benefits",
-  "Corporate and Commercial", "Corporate Governance", "Dispute Resolution",
-  "Startup Law & Compliance", "Civil, Commercial and Business Litigation",
-];
-
-const usefulLinks = ["About Us", "Contact", "Services", "Our Blog"];
+import { Calculator } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-card border-t border-border">
-    <div className="container mx-auto px-4 py-12 sm:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Brand */}
+  <footer className="bg-foreground text-background/70 py-12">
+    <div className="container mx-auto px-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <Scale className="w-5 h-5 text-primary" />
-            <span className="font-display text-xl font-bold text-gradient-gold">Case Matters</span>
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <Calculator className="w-4 h-4 text-primary-foreground" />
+            </div>
+            <span className="font-display text-lg font-bold text-background">ProBookeeper</span>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-            Professional legal services built on trust, strategy, and results.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            DLF Almeda, Sector 73, SPR Road, Gurgaon – 122101
-          </p>
+          <p className="text-sm leading-relaxed">Reliable bookkeeping setup, data organization, and system support tailored for growing businesses.</p>
         </div>
-
-        {/* Practice Areas */}
         <div>
-          <h4 className="font-display text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Practice Areas</h4>
-          <ul className="space-y-2">
-            {practiceAreas.map(a => (
-              <li key={a}>
-                <a href="#services" className="text-xs text-muted-foreground hover:text-primary transition-colors">{a}</a>
-              </li>
+          <h4 className="font-display font-semibold text-background mb-4">Services</h4>
+          <ul className="space-y-2 text-sm">
+            {["Bookkeeping", "Payroll Services", "Tax Planning", "Audit & Assurance", "Financial Reporting", "Business Advisory"].map((s) => (
+              <li key={s}><a href="#services" className="hover:text-primary transition-colors">{s}</a></li>
             ))}
           </ul>
         </div>
-
-        {/* Useful Links */}
         <div>
-          <h4 className="font-display text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Useful Links</h4>
-          <ul className="space-y-2">
-            {usefulLinks.map(l => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase().replace(/ /g, "-")}`} className="text-xs text-muted-foreground hover:text-primary transition-colors">{l}</a>
-              </li>
+          <h4 className="font-display font-semibold text-background mb-4">Quick Links</h4>
+          <ul className="space-y-2 text-sm">
+            {[{ label: "Home", href: "#home" }, { label: "About Us", href: "#about" }, { label: "Services", href: "#services" }, { label: "Contact Us", href: "#contact" }].map((l) => (
+              <li key={l.label}><a href={l.href} className="hover:text-primary transition-colors">{l.label}</a></li>
             ))}
-            <li><a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Terms & Conditions</a></li>
-            <li><a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Disclaimer</a></li>
           </ul>
         </div>
-
-        {/* Contact */}
         <div>
-          <h4 className="font-display text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Contact</h4>
-          <div className="space-y-2 text-xs text-muted-foreground">
-            <p>casematters.info@gmail.com</p>
-            <p>+91 9810238083</p>
-            <p>Mon - Sat | 10am - 8pm</p>
-            <p>Sunday | 10am - 5pm</p>
-          </div>
+          <h4 className="font-display font-semibold text-background mb-4">Contact</h4>
+          <ul className="space-y-2 text-sm">
+            <li>+1 (888) 871 0037</li>
+            <li>info@probookeeper.com</li>
+            <li>Mon - Fri | 9am - 6pm</li>
+          </ul>
         </div>
       </div>
-
-      <div className="mt-12 pt-6 border-t border-border text-center">
-        <p className="text-xs text-muted-foreground">
-          © Case Matters Legal Services. All rights reserved.
-        </p>
+      <div className="border-t border-background/10 pt-6 text-center text-sm">
+        © {new Date().getFullYear()} ProBookeeper. All rights reserved.
       </div>
     </div>
   </footer>
