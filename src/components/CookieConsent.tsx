@@ -4,12 +4,6 @@ import { Button } from "@/components/ui/button";
 
 const COOKIE = "pb_cookie_consent";
 
-/**
- * Lightweight cookie-consent banner. Records the choice in a first-party
- * cookie so it isn't shown again. Disclosing cookie use (including
- * third-party advertising cookies) and linking to the Privacy Policy is
- * part of staying compliant with Google's publisher requirements.
- */
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
 
@@ -28,31 +22,36 @@ const CookieConsent = () => {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-2xl rounded-2xl border border-border bg-card p-5 shadow-2xl"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card/95 px-4 py-2.5 backdrop-blur-md sm:inset-x-auto sm:left-4 sm:bottom-4 sm:max-w-sm sm:rounded-2xl sm:border sm:py-3 sm:shadow-2xl"
     >
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        We use cookies to improve your experience and to measure how visitors use this site,
-        including cookies set by third-party advertising and analytics partners. You can accept
-        or decline non-essential cookies — the site works either way. See our{" "}
-        <Link to="/privacy" className="font-semibold text-primary underline">
-          Privacy Policy
-        </Link>
-        .
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        <Button onClick={() => choose("accepted")} className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground">
-          Accept
-        </Button>
-        <Button
-          onClick={() => choose("declined")}
-          variant="outline"
-          className="rounded-full"
-        >
-          Decline
-        </Button>
+      <div className="flex items-center gap-3 sm:flex-col sm:items-start">
+        <p className="flex-1 text-[11px] leading-snug text-muted-foreground sm:text-sm">
+          We use cookies, including for advertising, to improve your experience.{" "}
+          <Link to="/privacy" className="font-semibold text-primary underline">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+        <div className="flex shrink-0 gap-2 sm:mt-1">
+          <Button
+            onClick={() => choose("accepted")}
+            size="sm"
+            className="h-8 rounded-full bg-primary px-4 text-xs text-primary-foreground hover:bg-primary/90"
+          >
+            Accept
+          </Button>
+          <Button
+            onClick={() => choose("declined")}
+            size="sm"
+            variant="outline"
+            className="h-8 rounded-full px-3 text-xs"
+          >
+            Decline
+          </Button>
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default CookieConsent;
