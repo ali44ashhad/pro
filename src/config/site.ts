@@ -21,11 +21,11 @@ export const site = {
 
   // Optional physical address — leave blank to hide it site-wide.
   address: {
-    street: "",
-    city: "",
-    state: "",
-    zip: "",
-    country: "United States",
+    street: "30 N Gould St Ste R",
+    city: "Sheridan",
+    state: "WY",
+    zip: "82801",
+    country: "US",
   },
 
   /**

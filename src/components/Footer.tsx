@@ -78,6 +78,9 @@ const Footer = () => (
               <Clock className="w-4 h-4 shrink-0" />
               {site.hours}
             </li>
+            <li className="text-sm leading-relaxed">
+              {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
+            </li>
           </ul>
           <div className="mt-5 flex flex-wrap gap-4 text-sm">
             <Link to="/privacy" className="hover:text-primary transition-colors">

@@ -18,7 +18,7 @@ const Contact = () => {
     { icon: Mail, label: site.email, href: `mailto:${site.email}` },
     { icon: Clock, label: site.hours },
     ...(hasAddress
-      ? [{ icon: MapPin, label: `${site.address.city}, ${site.address.state}` }]
+      ? [{ icon: MapPin, label: `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}` }]
       : [{ icon: MapPin, label: site.address.country }]),
   ];
 
