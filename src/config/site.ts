@@ -16,7 +16,7 @@ export const site = {
   // Contact (display + machine formats)
   phoneDisplay: "+1 (888) 822 1011",
   phoneHref: "tel:+18888221011",
-  email: "info@probookeepers.com",
+  email: "info@probookeeper.com",
   hours: "Mon – Fri, 9:00 AM – 6:00 PM",
 
   // Optional physical address — leave blank to hide it site-wide.
