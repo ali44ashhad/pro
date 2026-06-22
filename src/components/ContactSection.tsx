@@ -29,7 +29,7 @@ const ContactSection = () => {
               <h3 className="font-display text-xl font-semibold text-foreground mb-6">Contact Information</h3>
               <div className="space-y-5">
                 {[
-                  { icon: Phone, label: "+1 (888) 822 1011", href: "tel:+18888221011" },
+                  { icon: Phone, label: "+1 (888) 803-0205", href: "tel:+18888030205" },
                   { icon: Mail, label: "info@probookeepers.com", href: "mailto:info@probookeepers.com" },
                   { icon: MapPin, label: "United States", href: "#" },  
                   { icon: Clock, label: "Mon - Fri | 9am - 6pm", href: "#" },
@@ -46,7 +46,7 @@ const ContactSection = () => {
             <div className="bg-primary rounded-2xl p-8 text-center">
               <h3 className="font-display text-xl font-bold text-primary-foreground mb-2">Overwhelmed by Financial Management?</h3>
               <p className="text-primary-foreground/80 text-sm mb-4">Let ProBookeepers simplify it for you.</p>
-              <a href="tel:+18888221011">
+              <a href="tel:+18888030205">
                 <Button variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-full">
                   <Phone className="w-4 h-4 mr-2" />Call Us Now
                 </Button>
