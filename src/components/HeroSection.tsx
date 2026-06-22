@@ -64,7 +64,7 @@ const HeroSection = () => (
               <p className="text-xs font-semibold uppercase tracking-wider text-background/60">
                 Speak to an advisor now
               </p>
-              
+              <a
                 href={site.phoneHref}
                 className="font-display text-2xl font-bold text-background hover:text-primary transition-colors"
               >
