@@ -5,4 +5,4 @@ Allow: /
 User-agent: Mediapartners-Google
 Allow: /
 
-Sitemap: https://pro-nu-eight.vercel.app/sitemap.xml
+Sitemap: https://www.probookeepers.com/sitemap.xml
