@@ -18,11 +18,11 @@ const HeroSection = () => (
     <div className="absolute bottom-0 -left-24 w-[24rem] h-[24rem] rounded-full bg-primary/10 blur-3xl" />
 
     <div className="container mx-auto px-4 relative z-10">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-center pt-28 sm:pt-32 lg:pt-28 pb-16 lg:pb-20">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center pt-24 sm:pt-32 lg:pt-28 pb-14 lg:pb-20">
         {/* Left: copy + CTA */}
         <div>
           <motion.span
-            className="inline-flex items-center gap-2 bg-primary/15 text-primary border border-primary/30 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
+            className="inline-flex items-center gap-2 bg-primary/15 text-primary border border-primary/30 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -32,7 +32,7 @@ const HeroSection = () => (
           </motion.span>
 
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-[3.25rem] font-display font-bold text-background leading-[1.1] mb-5"
+            className="text-[1.7rem] sm:text-5xl lg:text-[3.25rem] font-display font-bold text-background leading-[1.15] sm:leading-[1.1] mb-4"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
@@ -41,7 +41,7 @@ const HeroSection = () => (
           </motion.h1>
 
           <motion.p
-            className="text-lg text-background/70 mb-8 max-w-xl leading-relaxed"
+            className="text-base sm:text-lg text-background/70 mb-5 max-w-xl leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
@@ -52,7 +52,7 @@ const HeroSection = () => (
 
           {/* phone CTA block */}
           <motion.div
-            className="inline-flex flex-wrap items-center gap-4 rounded-2xl border border-background/15 bg-background/5 px-5 py-4 mb-7"
+            className="inline-flex flex-wrap items-center gap-3 rounded-2xl border border-background/15 bg-background/5 px-4 py-3 mb-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
@@ -64,7 +64,7 @@ const HeroSection = () => (
               <p className="text-xs font-semibold uppercase tracking-wider text-background/60">
                 Speak to an advisor now
               </p>
-              <a
+              
                 href={site.phoneHref}
                 className="font-display text-2xl font-bold text-background hover:text-primary transition-colors"
               >
