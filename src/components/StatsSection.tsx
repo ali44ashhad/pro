@@ -30,8 +30,8 @@ const StatsSection = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Why Choose Us</p>
-            <h2 className="heading-section text-foreground mb-4">Effortless Accounting Starts with ProBookeeper</h2>
-            <p className="text-muted-foreground text-body-lg">Our experts handle the transition with speed and precision—so you can focus on growing your business.</p>
+            <h2 className="heading-section text-foreground mb-4">QuickBooks Experts Businesses Actually Recommend</h2>
+            <p className="text-muted-foreground text-body-lg">Certified, fast, and remote — here's why small businesses trust us with their QuickBooks and their books.</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

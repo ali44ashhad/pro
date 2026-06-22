@@ -1,15 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Calculator } from "lucide-react";
+import { Menu, X, Calculator, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact Us", href: "#contact" },
-];
+import { navLinks, site } from "@/config/site";
 
 const Navbar = () => {
   const location = useLocation();
@@ -25,6 +19,9 @@ const Navbar = () => {
 
   const solidNav = scrolled || !isHomePage;
 
+  const isActive = (href: string) =>
+    href === "/" ? location.pathname === "/" : location.pathname.startsWith(href);
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -37,7 +34,7 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto flex items-center justify-between h-16 sm:h-20 px-4">
-        <Link to="/#home" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
             <Calculator className="w-5 h-5 text-primary-foreground" />
           </div>
@@ -46,34 +43,40 @@ const Navbar = () => {
               solidNav ? "text-foreground" : "text-background"
             }`}
           >
-              ProBookeepers
+            {site.name}
           </span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-8">
-          {navItems.map((item) => (
+        <div className="hidden lg:flex items-center gap-7">
+          {navLinks.map((item) => (
             <Link
               key={item.label}
-              to={`/${item.href}`}
+              to={item.href}
               className={`text-sm font-body font-medium transition-colors duration-300 ${
                 solidNav
-                  ? "text-muted-foreground hover:text-primary"
-                  : "text-background/80 hover:text-background"
+                  ? isActive(item.href)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                  : isActive(item.href)
+                    ? "text-background"
+                    : "text-background/80 hover:text-background"
               }`}
             >
               {item.label}
             </Link>
           ))}
-          <a href="tel:+18888221011">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6">
-              +1 (888) 822 1011
+          <a href={site.phoneHref}>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-5 gap-2">
+              <Phone className="w-4 h-4" />
+              {site.phoneDisplay}
             </Button>
           </a>
         </div>
 
         <button
-          className="lg:hidden text-foreground p-2"
+          className={`lg:hidden p-2 ${solidNav ? "text-foreground" : "text-background"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -88,20 +91,23 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-              {navItems.map((item) => (
+            <div className="container mx-auto px-4 py-6 flex flex-col gap-3">
+              {navLinks.map((item) => (
                 <Link
                   key={item.label}
-                  to={`/${item.href}`}
-                  className="text-sm font-body font-medium text-muted-foreground hover:text-primary py-2"
+                  to={item.href}
+                  className={`text-sm font-body font-medium py-2 ${
+                    isActive(item.href) ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  }`}
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
-              <a href="tel:+18888221011" onClick={() => setMobileOpen(false)}>
-                <Button className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-                  +1 (888) 822 1011
+              <a href={site.phoneHref} onClick={() => setMobileOpen(false)}>
+                <Button className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full gap-2">
+                  <Phone className="w-4 h-4" />
+                  {site.phoneDisplay}
                 </Button>
               </a>
             </div>

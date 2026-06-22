@@ -1,14 +1,8 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Allow Google's ad crawler so ads can be served
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://pro-nu-eight.vercel.app/sitemap.xml

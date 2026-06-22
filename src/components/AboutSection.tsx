@@ -1,7 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Eye, Rocket, ArrowRight } from "lucide-react";
+import { ShieldCheck, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -20,7 +21,7 @@ const AboutSection = () => {
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
-                alt="Financial management"
+                alt="Certified advisor working through QuickBooks"
                 className="w-full h-[400px] object-cover"
               />
             </div>
@@ -35,54 +36,45 @@ const AboutSection = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">
-              About Company
-            </p>
-            <h2 className="heading-section text-foreground mb-6">
-              Smarter Bookkeeping for Better Business Control
-            </h2>
-            <p className="text-muted-foreground text-body-lg mb-8">
-              ProBookeepers provides reliable bookkeeping setup, data
-              organization, and system support tailored for growing businesses.
-              We streamline your financial processes, reduce errors, and ensure
-              smooth operations.
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">About ProBookeepers</p>
+            <h2 className="heading-section text-foreground mb-6">Certified QuickBooks Help, Without the Runaround</h2>
+            <p className="text-muted-foreground text-body-lg mb-6">
+              We're an independent firm of certified QuickBooks ProAdvisors and bookkeepers. We fix the software when
+              it breaks, set it up when it's new, and keep the books behind it accurate every month — all remotely,
+              all explained in plain English.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+            <div className="space-y-4 mb-8">
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
-                  <Eye className="w-5 h-5 text-primary" />
+                  <ShieldCheck className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-foreground mb-1">Our Vision</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>Making financial management effortless</li>
-                    <li>Ensuring precision in every number</li>
-                    <li>Creating lasting partnerships</li>
-                  </ul>
+                  <h4 className="font-display font-semibold text-foreground mb-1">Certified &amp; independent</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Real ProAdvisor certification and accounting credentials — never a faceless call centre.
+                  </p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
-                  <Rocket className="w-5 h-5 text-primary" />
+                  <Clock className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display font-semibold text-foreground mb-1">Our Mission</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>Smooth and secure data transition</li>
-                    <li>Streamlined bookkeeping workflows</li>
-                    <li>Increased efficiency</li>
-                  </ul>
+                  <h4 className="font-display font-semibold text-foreground mb-1">Fast, documented fixes</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Same-day response on most calls, with a written summary of everything we change.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <a href="#services">
+            <Link to="/about">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full gap-2">
-                Know More
+                More about us
                 <ArrowRight className="w-4 h-4" />
               </Button>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
