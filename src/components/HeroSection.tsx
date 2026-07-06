@@ -5,10 +5,10 @@ import { Phone, Check, ShieldCheck, Clock, MapPin } from "lucide-react";
 import { site } from "@/config/site";
 
 const checklist = [
-  "Reconciliation & bank-feed review",
-  "Chart of accounts health check",
-  "Payroll & sales-tax setup review",
-  "Cleanup scope + a flat-fee quote",
+  "Company-file & error diagnosis",
+  "Bank feeds & reconciliation",
+  "Setup, upgrades & migrations",
+  "Payroll & sales-tax fixes",
 ];
 
 const HeroSection = () => (
@@ -28,27 +28,17 @@ const HeroSection = () => (
             transition={{ delay: 0.1 }}
           >
             <ShieldCheck className="w-4 h-4" />
-            Certified QuickBooks ProAdvisors · Independent firm
+            QuickBooks Help &amp; Support · Certified ProAdvisors
           </motion.span>
 
           <motion.h1
-            className="text-[1.7rem] sm:text-5xl lg:text-[3.25rem] font-display font-bold text-background leading-[1.15] sm:leading-[1.1] mb-4"
+            className="text-[1.7rem] sm:text-5xl lg:text-[3.25rem] font-display font-bold text-background leading-[1.15] sm:leading-[1.1] mb-6"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
           >
-            Certified QuickBooks Help for Setup, Cleanup, Bookkeeping &amp; Payroll
+            Need QuickBooks Help? Talk to a Certified Expert.
           </motion.h1>
-
-          <motion.p
-            className="text-base sm:text-lg text-background/70 mb-5 max-w-xl leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-          >
-            Stuck on an error, behind on the books, or setting QuickBooks up from scratch? Our
-            certified advisors fix it remotely and keep your numbers clean month after month.
-          </motion.p>
 
           {/* phone CTA block */}
           <motion.div
@@ -62,7 +52,7 @@ const HeroSection = () => (
             </span>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-background/60">
-                Speak to an advisor now
+                Speak to a QuickBooks expert now
               </p>
               <a
                 href={site.phoneHref}
@@ -91,7 +81,7 @@ const HeroSection = () => (
                 variant="outline"
                 className="bg-transparent border-background/30 text-background hover:bg-background hover:text-foreground rounded-full px-7"
               >
-                Get a free consultation
+                Get free QuickBooks help
               </Button>
             </Link>
           </motion.div>
@@ -107,7 +97,7 @@ const HeroSection = () => (
           </motion.div>
         </div>
 
-        {/* Right: image + signature health-check card */}
+        {/* Right: image + signature help card */}
         <motion.div
           className="relative"
           initial={{ opacity: 0, scale: 0.96 }}
@@ -117,7 +107,7 @@ const HeroSection = () => (
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-background/10">
             <img
               src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
-              alt="Accountant reviewing financial reports and QuickBooks data"
+              alt="Certified expert providing QuickBooks help and support"
               className="w-full h-[300px] sm:h-[380px] lg:h-[440px] object-cover"
               loading="eager"
             />
@@ -125,8 +115,8 @@ const HeroSection = () => (
 
           {/* signature card */}
           <div className="lg:absolute lg:-bottom-8 lg:-left-6 mt-5 lg:mt-0 w-full lg:w-72 bg-card rounded-2xl border border-border shadow-2xl p-5">
-            <p className="font-display font-bold text-foreground text-sm mb-1">Free 15-min QuickBooks health check</p>
-            <p className="text-xs text-muted-foreground mb-3">Here's what we look at, at no charge:</p>
+            <p className="font-display font-bold text-foreground text-sm mb-1">What we help with</p>
+            <p className="text-xs text-muted-foreground mb-3">Certified QuickBooks support for:</p>
             <ul className="space-y-2">
               {checklist.map((c) => (
                 <li key={c} className="flex items-start gap-2 text-xs text-muted-foreground">

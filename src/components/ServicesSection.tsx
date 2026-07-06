@@ -20,10 +20,10 @@ const ServicesSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Our Services</p>
-          <h2 className="heading-section text-foreground mb-4">Every QuickBooks &amp; Accounting Need, One Team</h2>
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">QuickBooks Help</p>
+          <h2 className="heading-section text-foreground mb-4">How We Help With QuickBooks</h2>
           <p className="text-muted-foreground text-body-lg">
-            From a single error to your whole month-end, our certified advisors handle the software and the numbers behind it.
+            Company-file errors, setup, upgrades, payroll, and everyday questions — our certified ProAdvisors handle it, remotely.
           </p>
         </motion.div>
 
