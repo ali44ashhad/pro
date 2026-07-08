@@ -22,6 +22,17 @@ const Navbar = () => {
   const isActive = (href: string) =>
     href === "/" ? location.pathname === "/" : location.pathname.startsWith(href);
 
+  if (isHomePage) return ( // home trust bar
+    <div className="fixed top-0 inset-x-0 z-40 bg-foreground/90 backdrop-blur border-b border-primary/20">
+      <div className="container mx-auto px-4 h-11 flex items-center justify-center gap-2">
+        <span className="grid place-items-center h-5 w-5 rounded-full bg-primary/20 text-primary text-xs font-bold">✓</span>
+        <span className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-primary">
+          Certified QuickBooks ProAdvisors · Independent Support
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
