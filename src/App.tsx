@@ -23,6 +23,7 @@ import Disclaimer from "./pages/Disclaimer";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import TawkChat from "@/components/TawkChat";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <CookieConsent />
+    <TawkChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
